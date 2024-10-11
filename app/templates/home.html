@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Section with image and text side by side -->
+    <div class="intro">
+        <img src="{{ url_for('static', filename='blue_analysis.png') }}" alt="Radiology Image">
+        <div class="text">
+            <h3>About Our App</h3>
+            <p>
+                Our "RadioLens AI" app leverages cutting-edge LLM to automate the generation of radiology reports from medical images such as X-rays, MRIs, and CT scans. 
+        This compact and efficient model integrates both vision and language capabilities to understand and describe medical images with high accuracy, helping radiologists save time and effort while ensuring consistent reporting.
+            </p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

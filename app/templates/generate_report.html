@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Chatbot{% endblock %}
+
+{% block content %}
+<!-- Main content area -->
+<div class="container">
+    <h3>Report Generation Assistant</h3>
+    <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+            <!-- Chat messages will be dynamically added here -->
+        </div>
+        <div class="chat-input-container">
+            <!-- Attachment Icon on the left -->
+            <button id="attach-btn" class="icon-button">
+                <i class="fas fa-paperclip"></i> <!-- FontAwesome icon for attachment -->
+            </button>
+
+            <!-- Chat input field -->
+            <input type="text" id="chat-input" placeholder="Type your message..." />
+
+            <!-- Send Icon on the right -->
+            <button id="send-btn" class="icon-button">
+                <i class="fas fa-paper-plane"></i> <!-- FontAwesome icon for sending -->
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const sendBtn = document.getElementById('send-btn');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+    function scrollToBottom() {
+        const chatMessages = document.querySelector('.chat-messages');
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
+    }
+
+    // Example: Call this function after a new message is added
+    function addMessage(message) {
+        const messageContainer = document.querySelector('.chat-messages');
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('message');
+        newMessage.innerHTML = message;
+        messageContainer.appendChild(newMessage);
+        
+        // Scroll to the bottom after the new message is added
+        scrollToBottom();
+    }
+
+    // Example usage
+    document.getElementById('send-btn').addEventListener('click', function() {
+        const messageInput = document.getElementById('chat-input');
+        const messageText = messageInput.value;
+        
+        if (messageText.trim() !== "") {
+            addMessage(messageText);  // Add the message to the chat
+            messageInput.value = "";  // Clear the input field
+        }
+    });
+</script>
+{% endblock %}

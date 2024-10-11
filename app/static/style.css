@@ -1,0 +1,305 @@
+body {
+    background-color: #141414; /* Set the body background color to black */
+    color: white;           /* Set default text color to white for visibility */
+    margin: 0;             /* Remove default margin */
+    font-family: Arial, sans-serif; /* Set a default font for better readability */
+}
+
+header {
+    background-color: #141414;
+    padding: 10px;
+    color: white;
+    font-weight: bold; 
+    position: fixed;  /* Fix the header to the top */
+    top: 0;           /* Align it to the top of the page */
+    left: 0;          /* Align to the left */
+    width: 100%;      /* Make the nav full width */
+    z-index: 1000; 
+}
+
+nav.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically in the middle */
+    padding: 0 20px; /* Add padding to the nav to create space around the content */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* Make sure all items in the list are aligned vertically */
+}
+
+nav ul.left-nav {
+    justify-content: flex-start;
+}
+
+nav ul.right-nav {
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-right: 20px; /* Spacing between the nav items */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center; /* Ensure the icon and text are aligned */
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+.logo {
+    height: 40px; /* Adjust size as needed */
+    margin-right: 10px;
+    width: 150px;
+}
+
+/* Style for profile icon */
+.right-nav li a i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+main {
+    margin: 20px;
+}
+
+/* Align container below the navbar */
+.container {
+    width: 90%;
+    overflow: hidden;
+    margin: 20px auto;
+    padding-top: 80px; /* Add padding to avoid overlapping with fixed navbar */
+}
+
+/* Flexbox to align image and text side by side */
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.intro img {
+    width: 40%;
+    border-radius: 8px;
+    height: 400px;
+}
+
+.intro .text {
+    width: 50%;
+    padding: 20px;
+}
+
+.intro .text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #b1a6f0;
+}
+
+/* Responsive: Stack image and text on smaller screens */
+@media (max-width: 768px) {
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro img, .intro .text {
+        width: 100%;
+    }
+}
+/* Container for the entire chat */
+.chat-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+/* Styling for the messages area */
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #4054c9;
+    margin-bottom: 10px;
+    max-height: calc(100vh - 50px); /* Adjusts height to prevent overflowing below input */
+}
+/* Styling for each individual message */
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+/* Sent messages */
+.sent {
+    align-self: flex-end;
+}
+
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    background-color: #333;
+    width: 90%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+#chat-input {
+    flex-grow: 1;
+    border-radius: 5px;
+    color: white;
+    background-color: #333;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Icon buttons */
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #4054c9;
+}
+
+.icon-button:hover {
+    color: #98bdf5; /* Slight color change on hover */
+}
+
+/* FontAwesome icons size */
+#attach-btn i, #send-btn i {
+    font-size: 20px; /* Adjust the size as needed */
+}
+
+/* Adjust the spacing for the input field */
+#attach-btn {
+    margin-right: 10px; /* Spacing between attachment icon and input */
+}
+
+#send-btn {
+    margin-left: 10px; /* Spacing between input and send icon */
+}
+/*  view report */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#search-patient {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    background-color: #333;
+    color: white;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.report-table th,
+.report-table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+}
+
+.report-table th {
+    background-color: #444;
+}
+
+.report-table tbody tr:nth-child(even) {
+    background-color: #222;
+}
+
+.report-table tbody tr:hover {
+    background-color: #555;
+}
+
+/* contact us page */
+.contact-container {
+    display: flex;
+    max-width: 100%;
+    margin: auto;
+    justify-content: space-between;
+}
+.left-side {
+    align-items: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+    padding-right: 50px; /* Space between the form and text */
+}
+
+.right-side {
+    flex: 1;
+    border: #333;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    resize: none; /* Prevent resizing of textarea */
+}
+
+.contact-submit {
+    background-color: #3200a8;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #00127a;
+}
