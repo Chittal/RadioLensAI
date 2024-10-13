@@ -7,7 +7,16 @@
     <h3>Report Generation Assistant</h3>
     <div class="chat-container">
         <div class="chat-messages" id="chat-messages">
-            <!-- Chat messages will be dynamically added here -->
+            {% for message in chat_history %}
+                <div class="message {{ message.type }}">
+                    {% if message.type == 'user' %}
+                        <img src="{{ url_for('static', filename='user_icon.png') }}" class="icon" alt="User Icon">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='ai_icon.png') }}" class="icon" alt="AI Icon">
+                    {% endif %}
+                    <p>{{ message.text }}</p>
+                </div>
+            {% endfor %}    
         </div>
         <div class="chat-input-container">
             <!-- Attachment Icon on the left -->
@@ -52,10 +61,37 @@
     document.getElementById('send-btn').addEventListener('click', function() {
         const messageInput = document.getElementById('chat-input');
         const messageText = messageInput.value;
+        console.log("Sending message:", messageText); 
         
         if (messageText.trim() !== "") {
-            addMessage(messageText);  // Add the message to the chat
-            messageInput.value = "";  // Clear the input field
+            // addMessage(messageText);  // Add the message to the chat
+            fetch('/generate_report', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ input: messageText })
+            }) .then(response => response.json())
+            .then(data => {
+                console.log("Response:", data); 
+                const chatContainer = document.querySelector('.chat-messages');
+                
+                // Add user message
+                const userMessage = `<div class="message user"><img src="/static/user_icon.png" class="icon"><p>${messageText}</p></div>`;
+                chatContainer.innerHTML += userMessage;
+                
+                // Add AI message
+                const aiMessage = `<div class="message ai"><img src="/static/ai_icon.png" class="icon"><p>${data.response}</p></div>`;
+                chatContainer.innerHTML += aiMessage;
+
+                // Clear input field
+                document.getElementById('chat-input').value = '';
+
+                // Scroll to the bottom automatically
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            });
+            // messageInput.value = "";  // Clear the input field
+            // scrollToBottom();
         }
     });
 </script>

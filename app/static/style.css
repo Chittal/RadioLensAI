@@ -117,6 +117,7 @@ main {
         width: 100%;
     }
 }
+/*generate report*/
 /* Container for the entire chat */
 .chat-container {
     display: flex;
@@ -129,16 +130,30 @@ main {
     flex-grow: 1;
     padding: 20px;
     overflow-y: auto;
-    background-color: #4054c9;
+    /* background-color: #4054c9; */
     margin-bottom: 10px;
-    max-height: calc(100vh - 50px); /* Adjusts height to prevent overflowing below input */
+    max-height: 400px; /* Adjusts height to prevent overflowing below input */
 }
 /* Styling for each individual message */
 .message {
+    display: flex; /* Use flexbox for icon and text alignment */
+    align-items: center;
     padding: 10px;
     margin: 10px 0;
     max-width: 100%;
     word-wrap: break-word;
+}
+.message.user {
+    margin-left: auto; /* Align user messages to the right */
+}
+.message.ai {
+    margin-right: auto;
+}
+.icon {
+    width: 40px; /* Adjust icon size */
+    height: 40px;
+    background-color: #00127a;
+    margin-right: 10px; /* Space between icon and text */
 }
 
 /* Sent messages */

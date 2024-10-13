@@ -1,0 +1,16 @@
+{
+    "intents": [
+        {
+            "input": ["Hi", "Hello", "Hey", "Hi there", "Greetings"],
+            "responses": "Hello! How can I assist you today?"
+        },
+        {
+            "input": ["Bye", "Goodbye", "See you later", "Take care", "Thanks, bye"],
+            "responses": "Goodbye! Have a great day!"
+        },
+        {
+        "input": ["Bye", "Goodbye", "See you later", "Take care", "Thanks, bye"],
+        "responses": "Goodbye! Have a great day!"
+        }
+	]
+}
