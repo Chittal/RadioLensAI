@@ -4,12 +4,12 @@ The project aims to develop a compact and efficient vision-language model for au
 ## To run this application
 Install python first and follow the below steps to run this application in Windows.
 1. Create a virtual environment
-   python -m venv venv
+   ```python -m venv venv```
 2. Activate venv
-   venv\Scripts\activate
+   ```venv\Scripts\activate```
 3. Install requirements
-   pip install -r requirements.txt
+   ```pip install -r requirements.txt```
 4. Create .env file and set 'SECRET_KEY'
-   SECRET_KEY = 'Your value'
+   ```SECRET_KEY = 'Your value'```
 5. Run Flask application
-   python main.py
+  ```python main.py```
